@@ -1,0 +1,21 @@
+@import "./../../../utils/variables";
+
+.article-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .index {
+    @include setFont('inter', 400, 55px, 67px);
+    color: $text_color2;
+    margin-right: 32px;
+  }
+
+  .text {
+    @include setFont('inter', 500, 25px, 30px);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

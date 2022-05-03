@@ -1,0 +1,29 @@
+@import "./../../../utils/variables";
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+
+  .content-header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid $border_color1;
+    padding-bottom: 20px;
+    margin-bottom: 34px;
+
+    .icon {
+      width: 35px;
+      height: 35px;
+      margin-right: 20px;
+      margin-left: 10px;
+    }
+
+    .title {
+      @include setFont('inter',600,32px,39px);
+    }
+  }
+
+  .content {
+    margin-bottom: 130px;
+  }
+}

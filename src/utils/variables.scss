@@ -1,0 +1,46 @@
+//color variables
+$white0: #ffffff;
+$white1: #F6EDED;
+$white2: #F5F8F6;
+
+$green0: #5E876A;
+$green1: #8FAF99;
+$green2: #18231B;
+
+$black0: #000000;
+
+$red0: #8B0000;
+$red1: #dc3545;
+
+//text color variables
+$text_color0: $white0;
+$text_color1: $black0;
+$text_color2: $red0;
+$text_color3: $red1;
+
+
+//border color variables
+$border_color0: $red0;
+$border_color1: $green0;
+$border_color2: $white1;
+$border_color3: $black0;
+$border_color4: $red1;
+
+
+//background color variables
+$background_color0: $green0;
+$background_color1: $green1;
+$background_color2: $green2;
+$background_color3: $white2;
+$background_color4: $white0;
+$background_color5: $red0;
+
+//box-shadow variables
+/*$box_shadow0: 0px 16px 32px rgba(170, 0, 255, 0.24);*/
+
+@mixin setFont($family, $weight, $size, $lineHeight) {
+  font-family: $family, sans-serif;
+  font-size: $size;
+  line-height: $lineHeight;
+  font-weight: $weight;
+}

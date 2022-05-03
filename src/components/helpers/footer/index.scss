@@ -1,0 +1,64 @@
+@import "./../../../utils/variables";
+
+.footer-wrapper {
+  height: 271px;
+  background-color: $background_color2;
+  margin-top: auto;
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 1280px;
+    justify-content: space-between;
+    height: 100%;
+
+    .nav {
+      border-bottom: 1px solid $border_color2;
+      .nav-bar {
+        .nav-item {
+          @include setFont('inter',400,28px,34px);
+          color: $text_color0;
+          border-bottom: 0;
+        }
+        .active {
+          color: $text_color0;
+        }
+      }
+    }
+
+    .find-us {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .title {
+        @include setFont('inter',400,28px,34px);
+        color: $text_color0;
+      }
+      .links {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        .link-icon {
+          margin-right: 35px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+
+          &:last-child {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      @include setFont('inter',400,28px,34px);
+      opacity: 0.5;
+      color: $text_color0;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  }
+}

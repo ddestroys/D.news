@@ -1,0 +1,105 @@
+@import "./../../../utils/variables";
+
+.weather-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .search-city-row {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 116px 20px 116px;
+
+    .input {
+      border-bottom: 1px solid $border_color1;
+      width: 100%;
+      padding-bottom: 12px;
+      @include setFont('inter', 500, 32px, 39px);
+      transition: all ease-in-out .3s;
+
+      padding-left: 70px;
+
+      &.input-error {
+        border-bottom-color: $border_color4;
+        color: $text_color3;
+      }
+
+    }
+
+    .input-icon {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      left: 124px;
+      top: 0;
+    }
+
+    .search-button {
+      border-radius: 20px;
+      background-color: $background_color0;
+      padding: 6px 18px;
+      color: $text_color0;
+      @include setFont('inter', 500, 22px, 26px);
+      margin-left: 20px;
+      user-select: none;
+      cursor: pointer;
+      transition: background-color ease-in-out .3s;
+
+      &:hover {
+        background-color: $background_color5;
+      }
+    }
+  }
+
+  .weather {
+    padding: 80px 200px;
+    background-image: url("./../../../img/weather_background.svg");
+    margin: 20px 0 130px 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .weather-block {
+      border-radius: 20px;
+      padding: 40px 80px 60px 80px;
+      background-color: $background_color4;
+
+      .city-name {
+        @include setFont('inter', 600, 39px, 47px);
+        margin-bottom: 25px;
+      }
+
+      .year {
+        @include setFont('inter', 500, 32px, 39px);
+        margin-bottom: 35px;
+      }
+
+      .date-cards {
+        display: flex;
+        justify-content: space-between;
+        .date-card {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 155px;
+          padding: 9px 0;
+          border: 1px solid $border_color1;
+          background-color: $background_color3;
+
+          .date {
+            @include setFont('inter', 500, 32px, 39px);
+            margin-bottom: 70px;
+          }
+
+          .card-icon {
+            width: 90px;
+            height: 90px;
+            margin-bottom: 22px;
+          }
+
+          .weather-value {
+            @include setFont('inter', 400, 32px, 39px);
+          }
+        }
+      }
+    }
+  }
+}

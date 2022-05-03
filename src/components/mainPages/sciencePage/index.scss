@@ -1,0 +1,115 @@
+@import "./../../../utils/variables";
+
+.science-page-wrapper {
+  width: 1280px;
+  margin: 0 auto;
+
+  .content-container {
+    .content {
+      .latest-news-block {
+        display: flex;
+        flex-direction: row;
+
+        .latest-news-pic {
+          width: 650px;
+          height: 450px;
+          margin-right: 65px;
+        }
+
+        .description-block {
+          display: flex;
+          flex-direction: column;
+
+          .title {
+            @include setFont('inter', 400, 42px, 51px);
+            margin-bottom: 34px;
+          }
+
+          .description {
+            @include setFont('inter', 400, 25px, 30px);
+          }
+        }
+
+        &:hover {
+          .title {
+            text-decoration: underline;
+          }
+
+          .description {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .world-news-carousel-block {
+        .news-item-wrapper {
+          .news-item {
+            max-width: 301px;
+            .world-news-carousel-pic {
+              width: 301px;
+              height: 222px;
+            }
+
+            &:hover {
+              .title {
+                text-decoration: underline;
+              }
+
+              .description {
+                text-decoration: underline;
+              }
+            }
+
+          }
+        }
+
+        .react-multiple-carousel__arrow {
+          border-radius: 0;
+          background-color: transparent;
+
+          &.react-multiple-carousel__arrow--left {
+            left: 0;
+          }
+
+          &.react-multiple-carousel__arrow--right {
+            right: 0;
+          }
+        }
+      }
+
+      .interesting-about-science-block {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0 8px;
+
+        .article-item-link {
+          flex: 0 0 45%;
+
+          .article-item-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .article-item {
+              align-items: flex-start;
+              margin: 0;
+              @include setFont('inter',400,30px,36px);
+            }
+
+            .article-item-img {
+              width: 408px;
+              height: 251px;
+              background-size: cover;
+              background-repeat: no-repeat;
+              margin-top: 35px;
+            }
+          }
+        }
+
+
+
+      }
+    }
+  }
+}

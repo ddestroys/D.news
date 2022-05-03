@@ -1,0 +1,20 @@
+@import 'normalize';
+@import "components/helpers/preloader/index";
+@import "components/mainPages/noMatch/index";
+@import "components/mainPages/mainPage/index";
+@import "components/mainPages/sportPage/index";
+@import "components/mainPages/culturePage/index";
+@import "components/mainPages/weather/index";
+@import "components/mainPages/sciencePage/index";
+@import "components/modals/signIn/index";
+@import "components/helpers/header/index";
+@import "components/helpers/contentContainer/index";
+@import "components/helpers/newsItem/index";
+@import "components/helpers/articleItem/index";
+@import "components/helpers/footer/index";
+
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

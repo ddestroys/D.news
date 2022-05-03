@@ -1,0 +1,103 @@
+@import "./../../../utils/variables";
+
+.sign-in-body {
+  position: relative;
+  padding: 18px 0px;
+
+  .close-modal {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    cursor: pointer;
+  }
+
+  .status {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 60px;
+    padding: 12px 16px;
+    background-color: $background_color0;
+    border-radius: 20px;
+    @include setFont('inter', 700, 22px, 29px);
+    color: $text_color0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .form {
+    margin: 0px 60px;
+    .input-label {
+      margin-bottom: 30px;
+
+      .label {
+        @include setFont('inter', 600, 20px, 27px);
+        margin-bottom: 15px;
+      }
+
+      .input {
+        border-radius: 20px;
+        border: 1px solid $border_color3;
+        background-color: rgba(143, 175, 153, 0.09);
+        width: 100%;
+        padding: 5px 10px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .sections {
+    display: flex;
+    flex-wrap: wrap;
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 50%;
+
+      &:nth-child(-n+2) {
+        margin-bottom: 40px;
+      }
+
+      .section-pic {
+        width: 80px;
+        height: 80px;
+      }
+
+      .section-text {
+        @include setFont('inter', 600, 20px, 27px);
+      }
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 40px;
+
+    .accept, .redirect {
+      background-color: $background_color0;
+      border-radius: 20px;
+      padding: 6px 8px;
+      cursor: pointer;
+      color: $text_color0;
+      width: 120px;
+      text-align: center;
+    }
+
+    .accept {
+      @include setFont('inter', 700, 22px, 25px);
+      margin-bottom: 20px;
+    }
+
+    .redirect {
+      @include setFont('inter', 400, 19px, 26px);
+      background-color: $background_color1;
+    }
+  }
+}
