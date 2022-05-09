@@ -3,7 +3,6 @@ import {createInstance} from "./axiosInstance";
 const BASE_URL = process.env.REACT_APP_WEATHER_URL;
 const API_TOKEN = process.env.REACT_APP_API_WEATHER_TOKEN;
 
-console.log(BASE_URL, API_TOKEN)
 
 export const getWeather = (city='Minsk') => {
     const instance = createInstance({

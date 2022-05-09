@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Modal from 'react-modal';
 
 import Cross from './../../../img/cross.svg'
@@ -6,6 +6,10 @@ import AllNews from './../../../img/all_news.svg'
 import Sports from './../../../img/sports.svg'
 import Science from './../../../img/science.svg'
 import Culture from './../../../img/culture.svg'
+
+import { auth, logInWithEmailAndPassword, signInWithGoogle, registerWithEmailAndPassword, logout, setFirebaseSection } from "./../../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import classNames from "classnames";
 
 const customStyles = {
     content: {
@@ -48,10 +52,10 @@ const SignIn = ({closeModal, modalIsOpen}) => {
     const [login, setLogin] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [section, setSection] = useState('');
     const changeStep = (step) => {
-        console.log(step)
         setStep(step);
-        setEmail('');
+        //setEmail('');
         setLogin('');
         setPassword('');
     };
@@ -59,6 +63,40 @@ const SignIn = ({closeModal, modalIsOpen}) => {
         changeStep('registration')
         closeModal();
     }
+
+    const [user, loading, error] = useAuthState(auth);
+
+    useEffect(() => {
+        if (loading) {
+            console.log('loading')
+            return;
+        }
+        if (user) {
+            console.log(user)
+        };
+    }, [user, loading]);
+
+    const onOkClick = () => {
+        switch (step) {
+            case 'registration':
+                registerWithEmailAndPassword(login, email, password).then(()=>changeStep('section'))
+                break;
+            case 'signIn':
+                logInWithEmailAndPassword(email, password).then(()=>closeModalFunc())
+                break;
+            case 'section':
+                setFirebaseSection(email, section).then((res)=>console.log(res));
+                break;
+        }
+       /* console.log(email, password)
+            //logInWithEmailAndPassword(email, password)
+        registerWithEmailAndPassword(login, email, password)*/
+    };
+
+    const setSectionFunc = (section) => {
+        setSection(section)
+    }
+
     return (
         <Modal
             isOpen={modalIsOpen}
@@ -90,13 +128,13 @@ const SignIn = ({closeModal, modalIsOpen}) => {
                         <input className='input' value={password} onChange={(e)=>setPassword(e.target.value)}/>
                     </div>
                 </div> : <div className='sections'>
-                    {sections.map(section=><div className='section'>
-                        <img src={section.icon} className='section-pic'/>
-                        <div className='section-text'>{section.text}</div>
+                    {sections.map(sectionItem=><div className={classNames('section',{'active':section===sectionItem.text})} onClick={setSectionFunc.bind(this,sectionItem.text)}>
+                        <img src={sectionItem.icon} className='section-pic'/>
+                        <div className='section-text'>{sectionItem.text}</div>
                     </div>)}
                 </div>}
                 <div className='buttons'>
-                    <div className='accept' onClick={changeStep.bind(this, 'section')}>Ok</div>
+                    <div className='accept' onClick={onOkClick}>Ok</div>
                     {step !== 'section' && <div className='redirect' onClick={changeStep.bind(this, step === 'registration' ? 'singIn' : 'registration')}>{step === 'registration' ? 'Sign in' : 'Registration'}</div>}
                 </div>
             </div>

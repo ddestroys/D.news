@@ -3,7 +3,6 @@ import {createInstance} from "./axiosInstance";
 const BASE_URL = process.env.REACT_APP_SPORT_URL;
 const API_TOKEN = process.env.REACT_APP_API_SPORT_TOKEN;
 
-console.log(BASE_URL, API_TOKEN)
 
 export const getSportNews = () => {
     const instance = createInstance({

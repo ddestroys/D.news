@@ -26,7 +26,6 @@ export default class NewsStore {
 
     setSportNews = async () => {
             await getSportNews().then(res=>{
-                console.log(res.data.articles)
                 this.sportNews = res.data.articles;
             });
             return { isLoaded: true };
@@ -35,7 +34,6 @@ export default class NewsStore {
 
     setWorldNews = async () => {
         await getWorldNews().then(res=>{
-            console.log(res.data.articles)
             this.worldNews = res.data.articles;
         })
         return { isLoaded: true };
@@ -43,7 +41,6 @@ export default class NewsStore {
 
     setHealthNews = async () => {
         await getHealthNews().then(res=>{
-            console.log(res.data.articles)
             this.healthNews = res.data.articles;
         })
         return { isLoaded: true };
@@ -51,7 +48,6 @@ export default class NewsStore {
 
     setCultureNews = async () => {
         await getCultureNews().then(res=>{
-            console.log(res.data.articles)
             this.cultureNews = res.data.articles;
         })
         return { isLoaded: true };
@@ -59,7 +55,6 @@ export default class NewsStore {
 
     setScienceNews = async () => {
         await getScienceNews().then(res=>{
-            console.log(res.data.articles)
             this.scienceNews = res.data.articles;
         })
         return { isLoaded: true };

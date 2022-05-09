@@ -47,6 +47,18 @@
         }
       }
 
+      .log-out {
+        min-width: 140px;
+        padding: 7px 12px 7px 12px;
+        border-radius: 20px;
+        background-color: $background_color1;
+        align-items: center;
+        cursor: pointer;
+        @include setFont('inter',400,32px,39px);
+        justify-content: center;
+        text-align: center;
+      }
+
       .search-row {
         display: flex;
         flex-direction: row;

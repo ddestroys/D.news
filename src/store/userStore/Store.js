@@ -1,25 +1,30 @@
 import { action, makeObservable, observable } from 'mobx';
-import { getWeather } from '../../utils/requester/getWeather';
-//import { exerciseObject, objectInArrayWithExercises } from '../../utils/types';
+import {onAuthStateChanged} from "firebase/auth";
+import {auth, db} from "../../firebase";
+import {getDoc, doc} from 'firebase/firestore'
 
 export default class UserStore {
     constructor(rootStore) {
         this.rootStore = rootStore;
-        this.weather = [];
-        this.exercisesArray = [];
-        this.totalTime = 0;
-        this.location = {name: 'Minsk'};
-        this.weatherError = '';
+        this.user = null;
+
+        onAuthStateChanged(auth, async (user) =>{
+            const docRef = doc(db, "users", user.email);
+            const docRes = await getDoc(docRef);
+            this.user = docRes.data();
+        })
 
         makeObservable(this, {
-           /* setWeather: action,
-            weather: observable,
-            weatherError: observable,
-            location: observable,
-            exercisesArray: observable,
-            totalTime: observable,
-            updateTotalTime: action,
-            removeWeatherError: action,*/
+            user: observable,
+            getUser: action,
         });
+    }
+
+    getUser = async () => {
+        onAuthStateChanged(auth, async (user) =>{
+            const docRef = doc(db, "users", user.email);
+            const docRes = await getDoc(docRef);
+            this.user = docRes.data();
+        })
     }
 }

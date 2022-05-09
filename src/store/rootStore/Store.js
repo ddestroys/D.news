@@ -23,7 +23,7 @@ export default class RootStore {
     }
 
     initApp() {
-        Promise.all([this.weatherStore.setWeather(), this.newsStore.setSportNews(),this.newsStore.setWorldNews(), this.newsStore.setHealthNews(), this.newsStore.setCultureNews(),this.newsStore.setScienceNews()]).then(this.toggleLoading, (er) => {
+        Promise.all([this.weatherStore.setWeather(), this.userStore.getUser(), this.newsStore.setSportNews(),this.newsStore.setWorldNews(), this.newsStore.setHealthNews(), this.newsStore.setCultureNews(),this.newsStore.setScienceNews()]).then(this.toggleLoading, (er) => {
             this.toggleLoading();
             this.toggleError();
             console.log(er);
